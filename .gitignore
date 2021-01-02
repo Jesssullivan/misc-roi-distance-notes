@@ -1,0 +1,8 @@
+# venv:
+distance_venv
+
+# haar:
+haar
+
+# fruit:
+**/.DS_Store
