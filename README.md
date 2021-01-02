@@ -10,7 +10,7 @@ Note, [opencv has an extensive suite of actual calibration tools and utilities h
 
 ...But without calibration or much forethought, could rough measurements of known objects even be usable?  Some notes from a math challenged individual:
 
-*also over here:*
+
 ```
 # clone:
 git clone https://github.com/Jesssullivan/misc-roi-distance-notes && cd misc-roi-distance-notes
