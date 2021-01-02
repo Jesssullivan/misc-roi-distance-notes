@@ -1,7 +1,10 @@
+## *naive distance measurements with opencv*
 
-*naive shenanigans measuring distance to ROI w/ opencv*
+*xpost from [my blog](https://transscendsurvival.org/)*
 
-Knowing both the diagonal field of view of a camera's lens and the dimensions of the object we'd like to measure seems like more than enough to get a distance.
+<br/>
+
+Knowing both the Field of View (FoV) of a camera's lens and the dimensions of the object we'd like to measure (Region of Interest, ROI) seems like more than enough to get a distance.
 
 Note, [opencv has an extensive suite of actual calibration tools and utilities here.](https://docs.opencv.org/4.5.0/d9/db7/tutorial_py_table_of_contents_calib3d.html)
 
@@ -18,8 +21,16 @@ git clone https://github.com/Jesssullivan/misc-roi-distance-notes && cd misc-roi
 Most webcams don't really provide a Field of View much greater than ~50 degrees- this is the value of a MacBook Pro's webcam for instance.  Here's the plan to get a Focal Length value from Field of View:
 
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=\frac{Focal&space;Length&space;=&space;(\frac{ImageDimension}{2})&space;}{tan(\frac{FieldOfView}{2})}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{Focal&space;Length&space;=&space;(\frac{ImageDimension}{2})&space;}{tan(\frac{FieldOfView}{2})}" title="\frac{Focal Length = (\frac{ImageDimension}{2}) }{tan(\frac{FieldOfView}{2})}" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=Focal&space;Length&space;=&space;(\frac{ImageDimension}{2})&space;tan(\frac{FieldOfView}{2})" target="_blank" rel="noopener"><img src="https://latex.codecogs.com/gif.latex?Focal&space;Length&space;=&space;(\frac{ImageDimension}{2})&space;tan(\frac{FieldOfView}{2})" title="Focal Length = (\frac{ImageDimension}{2}) tan(\frac{FieldOfView}{2})" /></a>
 
+
+So, thinking along the lines similar triangles:
+
+-  Camera angle <a href="https://www.codecogs.com/eqnedit.php?latex=\measuredangle\frac{FoV}{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\measuredangle\frac{FoV}{2}" title="\measuredangle\frac{FoV}{2}" /></a> forms the angle between the *hypotenuse* side (one edge of the FoV angle) and the *adjacent* side
+- Dimension <a href="https://www.codecogs.com/eqnedit.php?latex=\frac{ImageDimension}{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{ImageDimension}{2}" title="\frac{ImageDimension}{2}" /></a> is half that of the *opposite* side of the triangle we are using to measure with.  
+- ^ This makes up the first of two ["similar triangles"](https://byjus.com/maths/similar-triangle-construct/)
+- Then, we start measuring: First, calculate the opposite ROI Dimension using the arbitrary Focal Length value we calculated from the first triangle- then, plug in the Actual ROI Dimensions.  
+- Now the adjacent side of this ROI triangle should hopefully be length, in the the units of ROI's Actual Dimension.
 
 
 source a fresh venv to fiddle from:
@@ -46,7 +57,7 @@ Of course, an actual thing with fixed dimensions would be better, like a stop si
 Let's try to calculate the *distance* as the *difference* between an actual dimension of the object with a detected dimension- here's the plan:
 
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=Distance&space;=&space;ActualDimension&space;*&space;\frac{FocalLength}{ROIDimension}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Distance&space;=&space;ActualDimension&space;*&space;\frac{FocalLength}{ROIDimension}" title="Distance = ActualDimension * \frac{FocalLength}{ROIDimension}" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=Distance&space;=&space;ActualDimension&space;*&space;\frac{FocalLength}{ROIDimension}" target="_blank" rel="noopener"><img src="https://latex.codecogs.com/gif.latex?Distance&space;=&space;ActualDimension&space;*&space;\frac{FocalLength}{ROIDimension}" title="Distance = ActualDimension * \frac{FocalLength}{ROIDimension}" /></a>
 
 
 #### *YMMV, but YOLO:*
@@ -79,7 +90,6 @@ while True:
     gray_width = gray.shape[1]
     gray_height = gray.shape[0]
 
-    # calculate focal length based on the perimeter of image by diagonal field of view:
     focal_value = (gray_height / 2) / math.tan(math.radians(DFOV_DEGREES / 2))
 
     # run detector:
@@ -87,9 +97,7 @@ while True:
 
     for x, y, h, w in result:
 
-        # the thinking here is to calculate the distance just like one would
-        # the measure difference of similar triangles....
-        dist = KNOWN_ROI_MM * focal_value / h
+		dist = KNOWN_ROI_MM * focal_value / h
         dist_in = dist / 25.4
 
         # update display:
@@ -104,4 +112,9 @@ while True:
 ```
 
 run test with:
-```python3 measure.py```
+```
+python3 measure.py
+```
+
+
+-Jess

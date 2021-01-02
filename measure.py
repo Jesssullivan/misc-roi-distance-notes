@@ -2,7 +2,7 @@ import math
 from cv2 import cv2
 
 DFOV_DEGREES = 50  # such as average laptop webcam horizontal field of view
-KNOWN_ROI_MM = 240  # say, a convex rectangle around a human head
+KNOWN_ROI_MM = 240  # say, height of a human head
 
 # image source:
 cap = cv2.VideoCapture(0)
@@ -24,7 +24,6 @@ while True:
     gray_width = gray.shape[1]
     gray_height = gray.shape[0]
 
-    # calculate focal length based on the perimeter of image by diagonal field of view:
     focal_value = (gray_height / 2) / math.tan(math.radians(DFOV_DEGREES / 2))
 
     # run detector:
@@ -32,9 +31,6 @@ while True:
 
     for x, y, h, w in result:
 
-        # the thinking here is to calculate the distance just like one would
-        # the measure difference of similar triangles....
-        # ymmv, but yolo:
         dist = KNOWN_ROI_MM * focal_value / h
         dist_in = dist / 25.4
 
