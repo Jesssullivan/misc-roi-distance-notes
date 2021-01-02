@@ -1,4 +1,4 @@
-## *naive distance measurements with opencv*
+## naive distance measurements with opencv
 
 *xpost from [my blog](https://transscendsurvival.org/)*
 
