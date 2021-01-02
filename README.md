@@ -27,7 +27,7 @@ Most webcams don't really provide a Field of View much greater than ~50 degrees-
 So, thinking along the lines similar triangles:
 
 -  Camera angle <a href="https://www.codecogs.com/eqnedit.php?latex=\measuredangle\frac{FoV}{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\measuredangle\frac{FoV}{2}" title="\measuredangle\frac{FoV}{2}" /></a> forms the angle between the *hypotenuse* side (one edge of the FoV angle) and the *adjacent* side
-- Dimension <a href="https://www.codecogs.com/eqnedit.php?latex=\frac{ImageDimension}{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{ImageDimension}{2}" title="\frac{ImageDimension}{2}" /></a> is half that of the *opposite* side of the triangle we are using to measure with.  
+- Dimension <a href="https://www.codecogs.com/eqnedit.php?latex=\frac{ImageDimension}{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{ImageDimension}{2}" title="\frac{ImageDimension}{2}" /></a> is the *opposite* side of the triangle we are using to measure with.  
 - ^ This makes up the first of two ["similar triangles"](https://byjus.com/maths/similar-triangle-construct/)
 - Then, we start measuring: First, calculate the opposite ROI Dimension using the arbitrary Focal Length value we calculated from the first triangle- then, plug in the Actual ROI Dimensions.  
 - Now the adjacent side of this ROI triangle should hopefully be length, in the the units of ROI's Actual Dimension.
