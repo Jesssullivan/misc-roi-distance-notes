@@ -111,10 +111,10 @@ while True:
 
 ```
 
-run test with:
-```
-python3 measure.py
-```
+
+| *run demo with:* | *demo:* |
+|---|---|
+|`python3 measure.py` | ![](./measure.gif) |
 
 
 -Jess
