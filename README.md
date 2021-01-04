@@ -24,7 +24,7 @@ Most webcams don't really provide a Field of View much greater than ~50 degrees-
 <a href="https://www.codecogs.com/eqnedit.php?latex=Focal&space;Length&space;=&space;(\frac{ImageDimension}{2})&space;tan(\frac{FieldOfView}{2})" target="_blank" rel="noopener"><img src="https://latex.codecogs.com/gif.latex?Focal&space;Length&space;=&space;(\frac{ImageDimension}{2})&space;tan(\frac{FieldOfView}{2})" title="Focal Length = (\frac{ImageDimension}{2}) tan(\frac{FieldOfView}{2})" /></a>
 
 
-So, thinking along the lines similar triangles:
+So, thinking along the lines of similar triangles:
 
 -  Camera angle <a href="https://www.codecogs.com/eqnedit.php?latex=\measuredangle\frac{FoV}{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\measuredangle\frac{FoV}{2}" title="\measuredangle\frac{FoV}{2}" /></a> forms the angle between the *hypotenuse* side (one edge of the FoV angle) and the *adjacent* side
 - Dimension <a href="https://www.codecogs.com/eqnedit.php?latex=\frac{ImageDimension}{2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{ImageDimension}{2}" title="\frac{ImageDimension}{2}" /></a> is the *opposite* side of the triangle we are using to measure with.  
@@ -113,6 +113,16 @@ while True:
 
 *run demo with:*
 
-`python3 measure.py` 
+```
+python3 measure.py
+```
 
 -Jess
+
+
+|||
+|---|---|
+|*With only Field of View and a ROI of known dimensions, the accuracy of this "similar triangles" solution thus far has only been limited by image resolution and the quality of the detector!* | ![](./measured.gif) |
+
+
+
