@@ -111,17 +111,21 @@ while True:
 
 ```
 
+- - - 
+
+
 *run demo with:*
 
 ```
 python3 measure.py
 ```
 
--Jess
-
 
 
 | *With only Field of View and a ROI of known dimensions, the accuracy of this "similar triangles" solution thus far has only been limited by image resolution and the quality of the detector- pretty cool!* | ![](./measured.gif) |
 |--|--|
 
+
+
+-Jess
 
