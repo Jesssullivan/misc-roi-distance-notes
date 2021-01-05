@@ -1,7 +1,8 @@
 ## naive distance measurements with opencv
 
-- *@ xpost from [my blog](https://transscendsurvival.org/)*
-- [*@ github.io*](https://jesssullivan.github.io//misc-roi-distance-notes/)
+
+- [*xpost on my blog*](https://transscendsurvival.org/)
+- [*readme on github.io*](https://jesssullivan.github.io//misc-roi-distance-notes/)
 
 
 <br/>
