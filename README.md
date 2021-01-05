@@ -1,6 +1,8 @@
 ## naive distance measurements with opencv
 
-*xpost from [my blog](https://transscendsurvival.org/)*
+- *@ xpost from [my blog](https://transscendsurvival.org/)*
+- [*@ github.io*](https://jesssullivan.github.io//misc-roi-distance-notes/)
+
 
 <br/>
 
@@ -110,6 +112,8 @@ while True:
             break
 
 ```
+
+
 
 - - - 
 
