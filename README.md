@@ -126,19 +126,13 @@ python3 measure.py
 ```
 
 
-<br/>
-
-<table>
-<thead>
+<table width="350px">
 <tr>
-<th><em>With only Field of View and a ROI of known dimensions, the accuracy of this "similar triangles" solution thus far has only been limited by image resolution and the quality of the detector- pretty cool!</em></th>
-<th><a target="_blank" rel="noopener noreferrer" href="/Jesssullivan/misc-roi-distance-notes/blob/main/measured.gif"><img src="/Jesssullivan/misc-roi-distance-notes/raw/main/measured.gif" alt="" style="max-width:100%;"></a></th>
+<td width="260px">
+  ...With only Field of View and a ROI of known dimensions, the accuracy of this &quot;similar triangles&quot; solution thus far has only been limited by image resolution and the quality of the detector- pretty cool!</td>
+<td width="90px">
+  <img src="https://i2.wp.com/raw.githubusercontent.com/Jesssullivan/misc-roi-distance-notes/main/measured.gif?w=676&#038;ssl=1" alt="" data-recalc-dims="1"></td>
 </tr>
-</thead>
 </table>
-
+<p>-Jess</p>
 <br/>
-
-
--Jess
-
